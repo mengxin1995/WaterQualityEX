@@ -37,6 +37,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView = new ImageView(mContext);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         Glide.with(mContext).load(mList.get(position)).into(imageView);
         container.addView(imageView);
         return imageView;
