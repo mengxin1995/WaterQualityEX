@@ -42,9 +42,7 @@ public class WelcomeFragment extends Fragment implements WelcomeContract.View {
 
     private void initUI(View view) {
         mWelcomePicViewPager = (ViewPager) view.findViewById(R.id.vp_welcome);
-
-        mViewPagerAdapter = new ViewPagerAdapter(mPresenter.getWelcomePicList(), mContext);
-        mWelcomePicViewPager.setAdapter(mViewPagerAdapter);
+        mPresenter.setWelcomeViewPagerAdapter(mWelcomePicViewPager, mContext);
     }
 
     @Override
