@@ -3,6 +3,7 @@ package com.tom.waterqualityex.welcome;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 
+import com.rd.PageIndicatorView;
 import com.tom.waterqualityex.BasePresenter;
 import com.tom.waterqualityex.BaseView;
 
@@ -12,7 +13,8 @@ import com.tom.waterqualityex.BaseView;
 
 public interface WelcomeContract {
     interface Presenter extends BasePresenter{
-        void setWelcomeViewPagerAdapter(ViewPager welcomePicViewPager, Context context);
+        void setWelcomeViewPagerAdapter(ViewPager welcomePicViewPager, PageIndicatorView pageIndicatorView, Context context);
+
     }
 
     interface View extends BaseView<Presenter>{

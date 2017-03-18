@@ -1,12 +1,14 @@
 package com.tom.waterqualityex.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.tom.waterqualityex.home.HomeActivity;
 
 import java.util.ArrayList;
 
@@ -40,6 +42,12 @@ public class ViewPagerAdapter extends PagerAdapter {
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         Glide.with(mContext).load(mList.get(position)).into(imageView);
         container.addView(imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.startActivity(new Intent(mContext, HomeActivity.class));
+            }
+        });
         return imageView;
     }
 

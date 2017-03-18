@@ -1,7 +1,6 @@
 package com.tom.waterqualityex.welcome;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.rd.PageIndicatorView;
 import com.tom.waterqualityex.R;
 import com.tom.waterqualityex.adapter.ViewPagerAdapter;
 import com.tom.waterqualityex.model.WelcomeResponseImpl;
 import com.tom.waterqualityex.model.local.WelcomePicLocalResponse;
+import com.tom.waterqualityex.utils.BackgroundMusic;
 
 
 public class WelcomeFragment extends Fragment implements WelcomeContract.View {
@@ -21,6 +22,7 @@ public class WelcomeFragment extends Fragment implements WelcomeContract.View {
     private WelcomeContract.Presenter mPresenter;
     private ViewPager mWelcomePicViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
+    private BackgroundMusic mBackmusicMusicInstance;
     private Context mContext;
 
     @Override
@@ -43,13 +45,17 @@ public class WelcomeFragment extends Fragment implements WelcomeContract.View {
     }
 
     private void initMusic() {
-        Intent intent = new Intent(mContext, WelcomeService.class);
-        getActivity().startService(intent);
+        mBackmusicMusicInstance = BackgroundMusic.getInstance(mContext);
+        mBackmusicMusicInstance.playBackgroundMusic("backmusic.mp3", true);
+        //这里暂时把音量关了
+        mBackmusicMusicInstance.setBackgroundVolume(0f);
     }
+
 
     private void initUI(View view) {
         mWelcomePicViewPager = (ViewPager) view.findViewById(R.id.vp_welcome);
-        mPresenter.setWelcomeViewPagerAdapter(mWelcomePicViewPager, mContext);
+        PageIndicatorView pageIndicatorView = (PageIndicatorView) view.findViewById(R.id.pageIndicatorView);
+        mPresenter.setWelcomeViewPagerAdapter(mWelcomePicViewPager, pageIndicatorView, mContext);
     }
 
     @Override
