@@ -1,6 +1,7 @@
 package com.tom.waterqualityex.welcome;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -37,7 +38,13 @@ public class WelcomeFragment extends Fragment implements WelcomeContract.View {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_welcome, container, false);
         initUI(view);
+        initMusic();
         return view;
+    }
+
+    private void initMusic() {
+        Intent intent = new Intent(mContext, WelcomeService.class);
+        getActivity().startService(intent);
     }
 
     private void initUI(View view) {
