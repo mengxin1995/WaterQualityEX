@@ -50,7 +50,6 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
     public WelcomePresenter(WelcomeContract.View view, WelcomeResponse welcomeResponse) {
         this.mView = view;
         this.mWelcomeResponse = welcomeResponse;
-        view.setPresenter(this);
     }
 
     @Override
