@@ -1,15 +1,24 @@
 package com.tom.waterqualityex.home;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 
+import com.tom.waterqualityex.BaseFragmentActivity;
 import com.tom.waterqualityex.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseFragmentActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+    protected Fragment creatFragment() {
+        return new HomeFragment();
+    }
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_home;
+    }
+
+    @Override
+    protected int getFragmentContainerId() {
+        return R.id.fragment_container;
     }
 }

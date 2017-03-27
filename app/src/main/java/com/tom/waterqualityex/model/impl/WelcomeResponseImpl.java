@@ -1,5 +1,6 @@
-package com.tom.waterqualityex.model;
+package com.tom.waterqualityex.model.impl;
 
+import com.tom.waterqualityex.model.WelcomeResponse;
 import com.tom.waterqualityex.model.local.WelcomePicLocalResponse;
 
 import java.util.ArrayList;

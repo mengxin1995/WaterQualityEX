@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.rd.PageIndicatorView;
 import com.tom.waterqualityex.R;
 import com.tom.waterqualityex.adapter.ViewPagerAdapter;
-import com.tom.waterqualityex.model.WelcomeResponseImpl;
+import com.tom.waterqualityex.model.impl.WelcomeResponseImpl;
 import com.tom.waterqualityex.model.local.WelcomePicLocalResponse;
 import com.tom.waterqualityex.utils.BackgroundMusic;
 
