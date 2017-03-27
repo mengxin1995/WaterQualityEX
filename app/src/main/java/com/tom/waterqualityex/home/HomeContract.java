@@ -1,5 +1,8 @@
 package com.tom.waterqualityex.home;
 
+import android.content.Context;
+import android.support.v4.view.ViewPager;
+
 import com.tom.waterqualityex.BasePresenter;
 import com.tom.waterqualityex.BaseView;
 
@@ -9,7 +12,7 @@ import com.tom.waterqualityex.BaseView;
 
 public interface HomeContract{
     interface Presenter extends BasePresenter{
-
+        void setHomeViewPagerAdapter(ViewPager mHomeViewPager, Context mContext);
     }
 
     interface View extends BaseView<Presenter>{
