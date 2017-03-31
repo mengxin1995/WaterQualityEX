@@ -68,4 +68,8 @@ public class HomeActivity extends BaseFragmentActivity {
         }
         return super.onTouchEvent(event);
     }
+
+    void sendCancleMessages(){
+        mHandle.removeMessages(JUMP_TO_WELCOME);
+    }
 }

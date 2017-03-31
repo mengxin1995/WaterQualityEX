@@ -2,6 +2,7 @@ package com.tom.waterqualityex.home;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,10 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.tom.waterqualityex.R;
+import com.tom.waterqualityex.data.DataActivity;
 import com.tom.waterqualityex.model.impl.HomeResponseImpl;
 import com.tom.waterqualityex.model.local.HomeLocalResponse;
 
@@ -20,6 +23,7 @@ public class HomeFragment extends Fragment implements HomeContract.View{
     private View mHomeView;
     private ViewPager mHomeViewPager;
     private Context mContext;
+    private ImageButton dataButton;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +43,15 @@ public class HomeFragment extends Fragment implements HomeContract.View{
     private void initUI() {
         mHomeViewPager = (ViewPager) mHomeView.findViewById(R.id.vp_home);
         mPersenter.setHomeViewPagerAdapter(mHomeViewPager, mContext);
+        dataButton = (ImageButton) mHomeView.findViewById(R.id.data);
+        dataButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DataActivity.class));
+                HomeActivity activity = (HomeActivity) getActivity();
+                activity.sendCancleMessages();
+            }
+        });
     }
 
 

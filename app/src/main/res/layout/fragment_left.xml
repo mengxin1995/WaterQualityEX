@@ -1,0 +1,78 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_left_background"
+    tools:context="com.tom.waterqualityex.data.LeftFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:scaleType="fitXY"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@color/transparent"
+            app:srcCompat="@mipmap/back" />
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/item1"
+                android:text="@string/item1"
+                style="@style/item_one_level_word" />
+            <TextView
+                android:id="@+id/item1_select"
+                style="@style/item_one_level_select"
+                android:background="@color/holo_orange_dark"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/item1_next"
+            android:background="@color/background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/item1_next1"
+                style="@style/data_item_next" />
+            <TextView
+                android:text="@string/item1_next2"
+                style="@style/data_item_next" />
+            <TextView
+                android:text="@string/item1_next3"
+                style="@style/data_item_next" />
+            <TextView
+                android:text="@string/item1_next4"
+                style="@style/data_item_next" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/item2"
+                android:text="@string/item2"
+                style="@style/item_one_level_word" />
+            <TextView
+                android:id="@+id/item2_select"
+                style="@style/item_one_level_select" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/item3"
+                android:text="@string/item3"
+                style="@style/item_one_level_word" />
+            <TextView
+                android:id="@+id/item3_select"
+                style="@style/item_one_level_select" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
