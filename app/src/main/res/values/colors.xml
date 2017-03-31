@@ -7,4 +7,7 @@
     <color name="homeTextColor">#60cb90</color>
     <color name="indicatorUnselected">#D1D2D2</color>
     <color name="indicatorSelected">#5FC8A2</color>
+    <color name="fragment_left_background">#009894</color>
+    <color name="background">#396572</color>
+    <color name="holo_orange_dark">#ffff8800</color>
 </resources>

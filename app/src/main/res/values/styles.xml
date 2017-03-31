@@ -10,4 +10,32 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="item_one_level_word">
+        <item name="android:textColor">@android:color/background_light</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">30</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/button_select</item>
+    </style>
+
+    <style name="item_one_level_select">
+        <item name="android:background">@color/fragment_left_background</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="data_item_next">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingLeft">50dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>
