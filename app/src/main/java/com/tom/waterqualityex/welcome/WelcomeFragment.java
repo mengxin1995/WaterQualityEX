@@ -48,7 +48,7 @@ public class WelcomeFragment extends Fragment implements WelcomeContract.View {
         mBackmusicMusicInstance = BackgroundMusic.getInstance(mContext);
         mBackmusicMusicInstance.playBackgroundMusic("backmusic.mp3", true);
         //这里暂时把音量关了
-        mBackmusicMusicInstance.setBackgroundVolume(0f);
+        //mBackmusicMusicInstance.setBackgroundVolume(0f);
     }
 
 
