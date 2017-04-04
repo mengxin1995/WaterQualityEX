@@ -14,4 +14,5 @@
     <string name="item1_next2">常规参数</string>
     <string name="item1_next3">氨氮指数</string>
     <string name="item1_next4">生活建议</string>
+    <string name="right_fragment_title">东湖水质数据</string>
 </resources>
