@@ -10,4 +10,5 @@
     <color name="fragment_left_background">#009894</color>
     <color name="background">#396572</color>
     <color name="holo_orange_dark">#ffff8800</color>
+    <color name="textColor">#FFFFFF</color>
 </resources>

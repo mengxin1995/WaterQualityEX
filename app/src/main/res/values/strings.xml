@@ -5,7 +5,6 @@
     <string name="pic2_text">监测数据</string>
     <string name="home_content_title">浙江农林大学\nZHEJIANG A &amp; F UNIVERSITY</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="item1">数据</string>
     <string name="item2">站点</string>
@@ -14,4 +13,5 @@
     <string name="item1_next2">常规参数</string>
     <string name="item1_next3">氨氮指数</string>
     <string name="item1_next4">生活建议</string>
+    <string name="right_fragment_title">东湖水质数据</string>
 </resources>
