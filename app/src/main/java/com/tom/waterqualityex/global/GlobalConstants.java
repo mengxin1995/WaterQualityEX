@@ -21,4 +21,8 @@ public class GlobalConstants {
      */
     public static final String SITE_BASE_URL = "http://115.236.84.154/";
 
+    /**
+     * 跳到欢迎界面的时间　单位毫秒
+     */
+    public static final long DELAYED_TIME = 1000 * 5 * 2;
 }

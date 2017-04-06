@@ -31,6 +31,9 @@ public class RightFragment extends Fragment {
     private View mRightView;
     private TextView aqi_zhishu;
     private TextView pm_zhishu;
+    private TextView shushidu;
+    private TextView xichezhishu;
+    private TextView yunxingjianyi;
 
     public RightFragment() {
 
@@ -62,6 +65,9 @@ public class RightFragment extends Fragment {
     private void initUI() {
         aqi_zhishu = (TextView) mRightView.findViewById(R.id.aqi_zhishu);
         pm_zhishu = (TextView) mRightView.findViewById(R.id.pm_zhishu);
+        shushidu = (TextView) mRightView.findViewById(R.id.shushidumiaoshu);
+        xichezhishu = (TextView) mRightView.findViewById(R.id.xichezhishumiaoshu);
+        yunxingjianyi = (TextView) mRightView.findViewById(R.id.yunxingjianyimiaoshu);
     }
 
     /**
@@ -116,5 +122,10 @@ public class RightFragment extends Fragment {
     private void showWeatherInfo(Weather weather) {
         aqi_zhishu.setText(weather.aqi.city.aqi);
         pm_zhishu.setText(weather.aqi.city.pm25);
+
+        //生活建议模块
+        shushidu.setText(weather.suggestion.comfort.info);
+        xichezhishu.setText(weather.suggestion.carWash.info);
+        yunxingjianyi.setText(weather.suggestion.sport.info);
     }
 }

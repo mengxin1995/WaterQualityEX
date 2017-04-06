@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 
 import com.tom.waterqualityex.BaseFragmentActivity;
 import com.tom.waterqualityex.R;
+import com.tom.waterqualityex.global.GlobalConstants;
 import com.tom.waterqualityex.global.MyApplication;
 import com.tom.waterqualityex.welcome.WelcomeActivity;
 
@@ -47,7 +48,7 @@ public class HomeActivity extends BaseFragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mHandle.sendEmptyMessageDelayed(JUMP_TO_WELCOME, 5000);
+        mHandle.sendEmptyMessageDelayed(JUMP_TO_WELCOME, GlobalConstants.DELAYED_TIME);
     }
 
     @Override
@@ -59,7 +60,8 @@ public class HomeActivity extends BaseFragmentActivity {
             case MotionEvent.ACTION_MOVE:
                 break;
             case MotionEvent.ACTION_UP:
-                mHandle.sendEmptyMessageDelayed(JUMP_TO_WELCOME, 5000);
+                mHandle.removeMessages(JUMP_TO_WELCOME);
+                mHandle.sendEmptyMessageDelayed(JUMP_TO_WELCOME, GlobalConstants.DELAYED_TIME);
                 break;
             case MotionEvent.ACTION_CANCEL:
                 break;
@@ -69,7 +71,7 @@ public class HomeActivity extends BaseFragmentActivity {
         return super.onTouchEvent(event);
     }
 
-    void sendCancleMessages(){
+    public void sendCancleMessages(){
         mHandle.removeMessages(JUMP_TO_WELCOME);
     }
 }

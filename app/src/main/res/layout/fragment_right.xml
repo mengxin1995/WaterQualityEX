@@ -32,13 +32,22 @@
                 <include layout="@layout/kongqizhiliang"/>
             </LinearLayout>
             <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2">
-
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/fragment_right_data_tianqi"/>
+                </LinearLayout>
             </LinearLayout>
-            <!--<include layout="@layout/fragment_right_data" />-->
         </LinearLayout>
-
     </LinearLayout>
 </FrameLayout>
