@@ -34,6 +34,8 @@ public class LeftFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getActivity().finish();
+                DataActivity activity = (DataActivity) getActivity();
+                activity.sendCancleMessages();
             }
         });
         TextView item1 = (TextView)mLeftFragmentView.findViewById(R.id.item1);

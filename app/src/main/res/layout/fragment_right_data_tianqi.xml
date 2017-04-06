@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/biaoti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/fragment_left_background"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/shenghuojianyi" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="生活建议"
+            android:textColor="@color/textColor"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_shushidu"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/biaoti"
+        android:background="@color/tianqidise">
+
+        <ImageView
+            android:id="@+id/green"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/green" />
+
+        <TextView
+            android:id="@+id/shushidu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/green"
+            android:text="舒适度"
+            android:textColor="@color/textColor"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/item_shushidu_end"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_shushidu"
+        android:background="@color/tianqidise"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/shushidumiaoshu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="35dp"
+            android:paddingTop="5dp"
+            android:text="还在努力的加载呢"
+            android:textColor="@color/textColor"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/textColor" />
+    </LinearLayout>
+
+
+    <!--第二个-->
+    <RelativeLayout
+        android:id="@+id/item_xichezhishu"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_shushidu_end"
+        android:background="@color/tianqidise">
+
+        <ImageView
+            android:id="@+id/blue"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/blue" />
+
+        <TextView
+            android:id="@+id/xichezhishu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/blue"
+            android:text="洗车指数"
+            android:textColor="@color/textColor"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/item_xichezhishu_end"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_xichezhishu"
+        android:background="@color/tianqidise"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/xichezhishumiaoshu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="35dp"
+            android:paddingTop="5dp"
+            android:text="还在努力的加载呢"
+            android:textColor="@color/textColor"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/textColor" />
+    </LinearLayout>
+
+    <!--第三个-->
+    <RelativeLayout
+        android:id="@+id/item_yunxingjianyi"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_xichezhishu_end"
+        android:background="@color/tianqidise">
+
+        <ImageView
+            android:id="@+id/red"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/red" />
+
+        <TextView
+            android:id="@+id/yunxingjianyi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/red"
+            android:text="运行建议"
+            android:textColor="@color/textColor"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_yunxingjianyi"
+        android:background="@color/tianqidise"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/yunxingjianyimiaoshu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="35dp"
+            android:paddingTop="5dp"
+            android:text="还在努力的加载呢"
+            android:textColor="@color/textColor"
+            android:textSize="15sp" />
+    </LinearLayout>
+</RelativeLayout>
