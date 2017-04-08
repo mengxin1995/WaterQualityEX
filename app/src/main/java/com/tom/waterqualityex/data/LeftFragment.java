@@ -15,6 +15,7 @@ import com.tom.waterqualityex.R;
 public class LeftFragment extends Fragment {
 
     private View mLeftFragmentView;
+    private DataActivity mActivity;
 
     public LeftFragment() {
 
@@ -24,6 +25,7 @@ public class LeftFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mLeftFragmentView = inflater.inflate(R.layout.fragment_left, container, false);
+        mActivity = (DataActivity) getActivity();
         initView();
         return mLeftFragmentView;
     }
@@ -55,26 +57,28 @@ public class LeftFragment extends Fragment {
                 //回恢复其他颜色
                 item2_select.setBackgroundColor(getResources().getColor(R.color.fragment_left_background));
                 item3_select.setBackgroundColor(getResources().getColor(R.color.fragment_left_background));
+                mActivity.replaceFragment(new RightFragment());
             }
         });
 
         item2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //展开next
+                //收拢next
                 item1_next.setVisibility(View.GONE);
                 //设置选中色
                 item2_select.setBackgroundColor(getResources().getColor(R.color.holo_orange_dark));
                 //回恢复其他颜色
                 item1_select.setBackgroundColor(getResources().getColor(R.color.fragment_left_background));
                 item3_select.setBackgroundColor(getResources().getColor(R.color.fragment_left_background));
+                mActivity.replaceFragment(new RightMapFragment());
             }
         });
 
         item3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //展开next
+                //收拢next
                 item1_next.setVisibility(View.GONE);
                 //设置选中色
                 item3_select.setBackgroundColor(getResources().getColor(R.color.holo_orange_dark));
