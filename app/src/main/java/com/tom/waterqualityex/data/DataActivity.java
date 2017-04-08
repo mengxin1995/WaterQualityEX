@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 
@@ -34,6 +37,7 @@ public class DataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
+        replaceFragment(new RightFragment());
     }
 
     @Override
@@ -64,5 +68,12 @@ public class DataActivity extends AppCompatActivity {
 
     public void sendCancleMessages(){
         mHandle.removeMessages(JUMP_TO_WELCOME);
+    }
+
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.right_fragment_contain, fragment);
+        transaction.commit();
     }
 }
