@@ -10,9 +10,10 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public abstract class BaseFragmentActivity extends AppCompatActivity {
+
     protected abstract Fragment creatFragment();
 
-    protected void init(){
+    protected void init() {
     }
 
     protected abstract int getLayoutResId();
@@ -20,14 +21,14 @@ public abstract class BaseFragmentActivity extends AppCompatActivity {
     protected abstract int getFragmentContainerId();
 
     @Override
-    protected final void onCreate(Bundle savedInstanceState){
+    protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
 
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(getFragmentContainerId());
 
-        if(null == fragment){
+        if (null == fragment) {
             fragment = creatFragment();
             fm.beginTransaction()
                     .add(getFragmentContainerId(), fragment)

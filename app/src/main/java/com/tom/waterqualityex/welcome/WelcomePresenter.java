@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 public class WelcomePresenter implements WelcomeContract.Presenter {
 
+    private static final String TAG = "WelcomePresenter";
     private static final int AUTO_PLAY = 1;
     private WelcomeContract.View mView;
     private WelcomeResponse mWelcomeResponse;
@@ -94,12 +96,13 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                        Log.d(TAG, "onTouch: " + "ACTION_DOWN");
                         mHandler.removeCallbacksAndMessages(null);
                         break;
                     case MotionEvent.ACTION_CANCEL:
-                        mHandler.sendEmptyMessageDelayed(AUTO_PLAY, 3000);
                         break;
                     case MotionEvent.ACTION_UP:
+                        mHandler.removeCallbacksAndMessages(null);
                         mHandler.sendEmptyMessageDelayed(AUTO_PLAY, 3000);
                         break;
                     default:

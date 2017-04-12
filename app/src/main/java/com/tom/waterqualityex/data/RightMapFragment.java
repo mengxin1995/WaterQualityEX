@@ -3,7 +3,9 @@ package com.tom.waterqualityex.data;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -26,6 +28,7 @@ import com.tom.waterqualityex.R;
 
 public class RightMapFragment extends Fragment {
 
+    private static final String TAG = "RightMapFragment";
     private View mView;
     private MapView mMapView;
     private BaiduMap baiduMap;
@@ -61,6 +64,36 @@ public class RightMapFragment extends Fragment {
         initMarker();
 
         setOnClickMarker();
+
+        setOnMapTouchListener();
+    }
+
+    private void setOnMapTouchListener() {
+        baiduMap.setOnMapTouchListener(new BaiduMap.OnMapTouchListener() {
+            /**
+             * 当用户触摸地图时回调函数
+             * @param event 触摸事件
+             */
+            public void onTouch(MotionEvent event) {
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        Log.d(TAG, "onTouchEvent: " + "down");
+                        mActivity.sendCancleMessages();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        Log.d(TAG, "onTouchEvent: " + "move");
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Log.d(TAG, "onTouchEvent: " + "up");
+                        mActivity.sendMessages();
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
 
     /**
