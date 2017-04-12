@@ -48,8 +48,6 @@ public class HomeFragment extends Fragment implements HomeContract.View{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), DataActivity.class));
-                HomeActivity activity = (HomeActivity) getActivity();
-                activity.sendCancleMessages();
             }
         });
     }

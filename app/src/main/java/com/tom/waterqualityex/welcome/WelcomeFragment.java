@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 
 import com.rd.PageIndicatorView;
 import com.tom.waterqualityex.R;
-import com.tom.waterqualityex.adapter.ViewPagerAdapter;
 import com.tom.waterqualityex.model.impl.WelcomeResponseImpl;
 import com.tom.waterqualityex.model.local.WelcomePicLocalResponse;
 import com.tom.waterqualityex.utils.BackgroundMusic;
@@ -21,7 +20,6 @@ public class WelcomeFragment extends Fragment implements WelcomeContract.View {
 
     private WelcomeContract.Presenter mPresenter;
     private ViewPager mWelcomePicViewPager;
-    private ViewPagerAdapter mViewPagerAdapter;
     private BackgroundMusic mBackmusicMusicInstance;
     private Context mContext;
 
@@ -48,7 +46,7 @@ public class WelcomeFragment extends Fragment implements WelcomeContract.View {
         mBackmusicMusicInstance = BackgroundMusic.getInstance(mContext);
         mBackmusicMusicInstance.playBackgroundMusic("backmusic.mp3", true);
         //这里暂时把音量关了
-        mBackmusicMusicInstance.setBackgroundVolume(0f);
+        //mBackmusicMusicInstance.setBackgroundVolume(0f);
     }
 
 
