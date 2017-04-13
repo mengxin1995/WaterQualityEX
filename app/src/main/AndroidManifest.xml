@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tom.waterqualityex">
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -29,7 +30,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="vwaLtmoQ66c6V7oO9y33G3cwup6bXUsd" />
@@ -44,11 +44,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".home.HomeActivity" />
-        <activity android:name=".data.DataActivity"/>
+        <activity android:name=".data.DataActivity" />
+
         <service
             android:name=".data.AutoUpdateService"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
+
+        <activity android:name=".simple.HelpingActivity" />
+        <activity android:name=".simple.WushuiActivity"></activity>
     </application>
 
 </manifest>

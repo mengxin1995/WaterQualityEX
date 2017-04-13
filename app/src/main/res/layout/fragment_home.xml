@@ -19,11 +19,11 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/picture_carcusel"
+        app:layout_constraintBottom_toBottomOf="@+id/wushuigongzhi"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/picture_carcusel" />
+        app:layout_constraintTop_toTopOf="@+id/wushuigongzhi" />
 
     <ImageButton
         android:id="@+id/campus_map"
@@ -60,7 +60,7 @@
         android:layout_marginLeft="149dp" />
 
     <ImageButton
-        android:id="@+id/picture_carcusel"
+        android:id="@+id/wushuigongzhi"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/transparent"
@@ -140,7 +140,7 @@
         android:layout_marginEnd="71dp"
         app:layout_constraintRight_toRightOf="@+id/pic3_text"
         android:layout_marginTop="127dp"
-        app:layout_constraintTop_toBottomOf="@+id/picture_carcusel"
+        app:layout_constraintTop_toBottomOf="@+id/wushuigongzhi"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toRightOf="@+id/pic2_text"
         android:layout_marginLeft="66dp"
@@ -183,7 +183,7 @@
         android:textColor="@android:color/background_light"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/picture_carcusel"
+        app:layout_constraintRight_toRightOf="@+id/wushuigongzhi"
         android:layout_marginTop="14dp"
         app:layout_constraintTop_toTopOf="@+id/project" />
 

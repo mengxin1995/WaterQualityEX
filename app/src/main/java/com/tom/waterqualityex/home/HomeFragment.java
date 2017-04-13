@@ -16,6 +16,8 @@ import com.tom.waterqualityex.R;
 import com.tom.waterqualityex.data.DataActivity;
 import com.tom.waterqualityex.model.impl.HomeResponseImpl;
 import com.tom.waterqualityex.model.local.HomeLocalResponse;
+import com.tom.waterqualityex.simple.HelpingActivity;
+import com.tom.waterqualityex.simple.WushuiActivity;
 
 public class HomeFragment extends Fragment implements HomeContract.View{
 
@@ -26,6 +28,8 @@ public class HomeFragment extends Fragment implements HomeContract.View{
     private ImageButton dataButton;
     private ImageButton project;
     private ImageButton introduce;
+    private ImageButton helping;
+    private ImageButton wushuigongzhi;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,6 +70,22 @@ public class HomeFragment extends Fragment implements HomeContract.View{
             @Override
             public void onClick(View v) {
                 mPersenter.setIntroduceItem();
+            }
+        });
+
+        helping = (ImageButton) mHomeView.findViewById(R.id.helping);
+        helping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, HelpingActivity.class));
+            }
+        });
+
+        wushuigongzhi = (ImageButton) mHomeView.findViewById(R.id.wushuigongzhi);
+        wushuigongzhi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, WushuiActivity.class));
             }
         });
     }
