@@ -29,7 +29,7 @@ public class HomePresenter implements HomeContract.Presenter {
                 case AUTO_PLAY:
                     int currentItem = mHomeViewPager.getCurrentItem();
                     currentItem++;
-                    if (currentItem > mHomeContent.size() - 1) {
+                    if (currentItem > mHomeContent.size() - 2) {
                         currentItem = 0;
                     }
                     mHomeViewPager.setCurrentItem(currentItem, false);
@@ -63,6 +63,18 @@ public class HomePresenter implements HomeContract.Presenter {
         mHomeContent = mHomeResponse.getHomeContent();
         mHomeViewPager.setAdapter(new HomeViewPagerAdapter(mHomeContent, mContext));
         setWelcomeViewPagerAutoSlide();
+    }
+
+    @Override
+    public void setProjectItem() {
+        mHomeViewPager.setCurrentItem(mHomeContent.size() - 1, false);
+        mHandler.removeCallbacksAndMessages(null);
+    }
+
+    @Override
+    public void setIntroduceItem() {
+        mHomeViewPager.setCurrentItem(0, false);
+        mHandler.sendEmptyMessageDelayed(AUTO_PLAY, 3000);
     }
 
 

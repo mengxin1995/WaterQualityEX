@@ -24,6 +24,8 @@ public class HomeFragment extends Fragment implements HomeContract.View{
     private ViewPager mHomeViewPager;
     private Context mContext;
     private ImageButton dataButton;
+    private ImageButton project;
+    private ImageButton introduce;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +50,22 @@ public class HomeFragment extends Fragment implements HomeContract.View{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), DataActivity.class));
+            }
+        });
+
+        project = (ImageButton) mHomeView.findViewById(R.id.project);
+        project.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPersenter.setProjectItem();
+            }
+        });
+
+        introduce = (ImageButton) mHomeView.findViewById(R.id.introduce);
+        introduce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPersenter.setIntroduceItem();
             }
         });
     }
