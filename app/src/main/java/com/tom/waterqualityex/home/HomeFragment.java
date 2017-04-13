@@ -17,6 +17,7 @@ import com.tom.waterqualityex.data.DataActivity;
 import com.tom.waterqualityex.model.impl.HomeResponseImpl;
 import com.tom.waterqualityex.model.local.HomeLocalResponse;
 import com.tom.waterqualityex.simple.HelpingActivity;
+import com.tom.waterqualityex.simple.SchoolMapActivity;
 import com.tom.waterqualityex.simple.WushuiActivity;
 
 public class HomeFragment extends Fragment implements HomeContract.View{
@@ -30,6 +31,7 @@ public class HomeFragment extends Fragment implements HomeContract.View{
     private ImageButton introduce;
     private ImageButton helping;
     private ImageButton wushuigongzhi;
+    private ImageButton map;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,6 +88,14 @@ public class HomeFragment extends Fragment implements HomeContract.View{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(mContext, WushuiActivity.class));
+            }
+        });
+
+        map = (ImageButton) mHomeView.findViewById(R.id.campus_map);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, SchoolMapActivity.class));
             }
         });
     }
