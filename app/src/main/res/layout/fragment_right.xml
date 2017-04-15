@@ -40,6 +40,13 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:background="#606E7078"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:id="@+id/chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="310dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_weight="1"
