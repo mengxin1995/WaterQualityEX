@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class HttpResult<T> {
-    @SerializedName("success")
+    @SerializedName("status")
     private boolean isSuccess;
     @SerializedName("data")
     private T subjects;

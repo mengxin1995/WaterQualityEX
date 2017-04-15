@@ -7,22 +7,21 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class WaterData {
-    private String date;
+    @SerializedName("date_time")
     private String time;
     private float ph;
-    @SerializedName("diandaolv")
+    @SerializedName("conductivity")
     private float dianDaoLv;
-    @SerializedName("shuiwen")
+    @SerializedName("water_temperature")
     private float shuiWen;
-    @SerializedName("andan")
+    @SerializedName("ammonia_nitrogen")
     private float anDan;
-    @SerializedName("rongjieyang")
+    @SerializedName("dissolved_oxygen")
     private float rongJieYang;
 
     @Override
     public String toString() {
-        return "WaterData{" +
-                "date='" + date + '\'' +
+        return "WaterData{"  +
                 ", time='" + time + '\'' +
                 ", ph=" + ph +
                 ", dianDaoLv=" + dianDaoLv +
@@ -30,14 +29,6 @@ public class WaterData {
                 ", anDan=" + anDan +
                 ", rongJieYang=" + rongJieYang +
                 '}';
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getTime() {

@@ -52,7 +52,8 @@
             android:exported="true" />
 
         <activity android:name=".simple.HelpingActivity" />
-        <activity android:name=".simple.WushuiActivity"></activity>
+        <activity android:name=".simple.WushuiActivity" />
+        <activity android:name=".simple.SchoolMapActivity"></activity>
     </application>
 
 </manifest>

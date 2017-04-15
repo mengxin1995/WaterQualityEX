@@ -6,10 +6,8 @@ import com.tom.waterqualityex.http.entity.WaterData;
 
 import java.util.List;
 
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -19,17 +17,10 @@ import rx.Observable;
 public interface WaterQualityService {
 
     /**
-     * 获得今天的水质数据
+     * 获得指定一天，指定机器的水质数据
      * @return
      */
-    @GET("Option/fordata.php")
-    Observable<HttpResult<List<WaterData>>> getTodayWaterData();
-
-    /**
-     * 获得指定日期一天的水质数据
-     * @return
-     */
-    @FormUrlEncoded
-    @POST("Option/fordata.php")
-    Observable<HttpResult<List<WaterData>>> getWaterData(@Field("flag") int flag, @Field("day") String data);
+    @GET("app/limitdatas")
+    Observable<HttpResult<List<WaterData>>> getWaterData(@Query("instrument_id") String id,
+                                                         @Query("date") String data);
 }

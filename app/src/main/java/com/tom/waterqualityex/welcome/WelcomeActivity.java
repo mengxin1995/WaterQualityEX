@@ -21,4 +21,5 @@ public class WelcomeActivity extends BaseFragmentActivity {
     protected int getFragmentContainerId() {
         return R.id.fragment_container;
     }
+
 }
