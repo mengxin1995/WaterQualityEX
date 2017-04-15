@@ -13,6 +13,10 @@ import com.tom.waterqualityex.BaseView;
 public interface HomeContract{
     interface Presenter extends BasePresenter{
         void setHomeViewPagerAdapter(ViewPager mHomeViewPager, Context mContext);
+
+        void setProjectItem();
+
+        void setIntroduceItem();
     }
 
     interface View extends BaseView<Presenter>{

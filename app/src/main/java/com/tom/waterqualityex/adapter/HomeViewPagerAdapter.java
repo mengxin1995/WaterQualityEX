@@ -41,7 +41,11 @@ public class HomeViewPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View view = inflater.inflate(R.layout.viewpager_home_content, null);
+        View view = null;
+        if (position == mList.size() - 1)
+            view = inflater.inflate(R.layout.viewpager_home_content_ex, null);
+        else
+            view = inflater.inflate(R.layout.viewpager_home_content, null);
         fillTheItem(view, position);
         container.addView(view);
         return view;
@@ -49,8 +53,12 @@ public class HomeViewPagerAdapter extends PagerAdapter {
 
     private void fillTheItem(View view, int position) {
         initUI(view);
-        mHomeContentID.setText("0" + (position + 1));
-        mHomeContent.setText(mList.get(position));
+        if (position == mList.size() - 1) {
+            mHomeContent.setText(mList.get(position));
+        } else {
+            mHomeContentID.setText("0" + (position + 1));
+            mHomeContent.setText(mList.get(position));
+        }
     }
 
     private void initUI(View view) {

@@ -55,25 +55,12 @@ public class HttpMethods {
         return httpMethods;
     }
 
-
-    /**
-     * 获得今天的水质数据
-     * @return
-     */
-    public void getTodayWaterData(Subscriber<List<WaterData>> subscriber){
-        Observable<List<WaterData>> observable = mWaterQualityService.getTodayWaterData()
-                .map(new HttpResultFunc<List<WaterData>>());
-
-        toSubscribe(observable, subscriber);
-    }
-
-
     /**
      * 获得指定日期一天的水质数据
      * @return
      */
-    public void getWaterData(Subscriber<List<WaterData>> subscriber, int flag, String data){
-        Observable<List<WaterData>> observable = mWaterQualityService.getWaterData(flag, data)
+    public void getWaterData(Subscriber<List<WaterData>> subscriber, String id, String data){
+        Observable<List<WaterData>> observable = mWaterQualityService.getWaterData(id, data)
                 .map(new HttpResultFunc<List<WaterData>>());
         toSubscribe(observable, subscriber);
     }

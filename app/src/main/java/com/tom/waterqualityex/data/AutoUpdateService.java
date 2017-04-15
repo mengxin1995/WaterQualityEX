@@ -9,6 +9,7 @@ import android.os.SystemClock;
 
 import com.tom.waterqualityex.domain.gson.Weather;
 import com.tom.waterqualityex.global.GlobalConstants;
+import com.tom.waterqualityex.utils.BackgroundMusic;
 import com.tom.waterqualityex.utils.Engine;
 import com.tom.waterqualityex.utils.HttpUtil;
 import com.tom.waterqualityex.utils.SpUtil;
@@ -20,7 +21,23 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class AutoUpdateService extends Service {
+
+    private BackgroundMusic mBackmusicMusicInstance;
+
     public AutoUpdateService() {
+    }
+
+    @Override
+    public void onCreate() {
+        initMusic();
+        super.onCreate();
+    }
+
+    private void initMusic() {
+        mBackmusicMusicInstance = BackgroundMusic.getInstance(getApplicationContext());
+        mBackmusicMusicInstance.playBackgroundMusic("backmusic.mp3", true);
+        //这里暂时把音量关了
+        //mBackmusicMusicInstance.setBackgroundVolume(0f);
     }
 
     @Override

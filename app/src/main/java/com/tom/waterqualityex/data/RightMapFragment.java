@@ -122,7 +122,7 @@ public class RightMapFragment extends Fragment {
      */
     private void initMarker() {
         MarkerOptions options = new MarkerOptions();
-        BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.mipmap.icon_eat);
+        BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.mipmap.location_icon);
         options.position(mZafu_donghu)      // 位置
                 .title("农大站点")      // title
                 .icon(icon)         // 图标
