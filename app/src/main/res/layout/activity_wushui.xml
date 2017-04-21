@@ -11,6 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        app:piv_viewPager="@id/vp_wushui"/>
+
     <TextView
         android:id="@+id/vp_text"
         android:text="这是我们浙江农林大学对五水共治做出的贡献"
@@ -18,9 +27,9 @@
         android:textColor="@color/holo_orange_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginTop="10dp" />
 
     <ImageButton
         android:id="@+id/back"

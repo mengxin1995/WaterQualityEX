@@ -9,8 +9,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.rd.PageIndicatorView;
+import com.rd.animation.AnimationType;
 import com.tom.waterqualityex.R;
-import com.tom.waterqualityex.adapter.ViewPagerAdapter;
+import com.tom.waterqualityex.adapter.WuShuiViewPagerAdapter;
 
 import java.util.ArrayList;
 
@@ -19,7 +21,7 @@ public class WushuiActivity extends AppCompatActivity {
     private static final int AUTO_PLAY = 1;
     private ViewPager vp_wushui;
     private ArrayList<Integer> picList = new ArrayList<Integer>();
-    private ViewPagerAdapter viewPagerAdapter;
+    private WuShuiViewPagerAdapter viewPagerAdapter;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -39,6 +41,8 @@ public class WushuiActivity extends AppCompatActivity {
             }
         }
     };
+    private PageIndicatorView pageIndicatorView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +61,10 @@ public class WushuiActivity extends AppCompatActivity {
     private void initViewPager() {
         vp_wushui = (ViewPager) findViewById(R.id.vp_wushui);
         initData();
-        viewPagerAdapter = new ViewPagerAdapter(picList, this);
+        viewPagerAdapter = new WuShuiViewPagerAdapter(picList, this);
         vp_wushui.setAdapter(viewPagerAdapter);
-
+        pageIndicatorView = (PageIndicatorView) findViewById(R.id.pageIndicatorView);
+        customizeIndicator(pageIndicatorView);
         setWelcomeViewPagerAutoSlide();
     }
 
@@ -72,6 +77,18 @@ public class WushuiActivity extends AppCompatActivity {
         picList.add(R.mipmap.p6);
         picList.add(R.mipmap.p7);
         picList.add(R.mipmap.p8);
+    }
+
+
+    /**
+     * 定制指示器
+     * @param pageIndicatorView
+     */
+    private void customizeIndicator(PageIndicatorView pageIndicatorView) {
+        pageIndicatorView.setViewPager(vp_wushui);
+        pageIndicatorView.setAnimationDuration(3000);
+        pageIndicatorView.setAnimationType(AnimationType.DROP);
+        pageIndicatorView.setInteractiveAnimation(true);
     }
 
     /**
