@@ -24,5 +24,5 @@ public class GlobalConstants {
     /**
      * 跳到欢迎界面的时间　单位毫秒
      */
-    public static final long DELAYED_TIME = 1000 * 5 * 2;
+    public static final long DELAYED_TIME = 1000 * 5 * 12;
 }
