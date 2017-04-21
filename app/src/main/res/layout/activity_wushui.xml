@@ -5,30 +5,30 @@
     android:layout_height="match_parent"
     android:background="@mipmap/data_background">
 
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_wushui"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/vp_text"
+        android:text="这是我们浙江农林大学对五水共治做出的贡献"
+        android:textSize="20sp"
+        android:textColor="@color/holo_orange_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" />
+
     <ImageButton
         android:id="@+id/back"
-        android:scaleType="fitXY"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@color/transparent"
+        android:scaleType="fitXY"
         app:srcCompat="@mipmap/back" />
 
-    <TextView
-        android:id="@+id/mytitle"
-        android:textColor="@color/textColor"
-        android:text="《人民日报》等多家媒体报道我校发挥优势助力剿灭劣V类水"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:id="@+id/wushuigongzhi_pic"
-        android:layout_below="@id/mytitle"
-        android:layout_centerHorizontal="true"
-        android:src="@mipmap/wushuigongzhi"
-        android:layout_width="600dp"
-        android:layout_height="400dp" />
 </RelativeLayout>

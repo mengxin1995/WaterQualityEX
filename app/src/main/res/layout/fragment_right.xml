@@ -10,13 +10,40 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            style="@style/data_item_next"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+        <RelativeLayout
+            android:id="@+id/rl_top"
             android:background="@color/fragment_left_background"
-            android:text="@string/right_fragment_title" />
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                style="@style/data_item_next"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/right_fragment_title" />
+            <TextView
+                android:id="@+id/tianqi"
+                android:textColor="@color/textColor"
+                android:textSize="15sp"
+                android:text="晴"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/wendu"
+                android:text="13℃"
+                android:textColor="@color/textColor"
+                android:textSize="30sp"
+                android:layout_toLeftOf="@id/tianqi"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:orientation="vertical"
