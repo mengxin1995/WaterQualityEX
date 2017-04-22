@@ -40,7 +40,12 @@
 
     <style name="shuzhi">
         <item name="android:textColor">@color/textColor</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="shujubiaoti">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
 </resources>

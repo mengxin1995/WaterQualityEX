@@ -63,10 +63,9 @@
         android:layout_alignBottom="@id/kongqizhiliang"
         android:layout_toRightOf="@id/pm_mingzi"
         android:layout_marginLeft="40dp"
-        android:textColor="@color/textColor"
-        android:textSize="15sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/shujubiaoti" />
 
     <TextView
         android:id="@+id/andanzhi"
@@ -81,8 +80,7 @@
     <TextView
         android:id="@+id/shuiwen"
         android:text="水温"
-        android:textColor="@color/textColor"
-        android:textSize="15sp"
+        style="@style/shujubiaoti"
         android:layout_toRightOf="@id/andanzhi"
         android:layout_alignBottom="@id/kongqizhiliang"
         android:layout_marginLeft="30dp"
@@ -102,9 +100,8 @@
     <TextView
         android:id="@+id/diandaolv"
         android:text="电导率"
-        android:textSize="15sp"
+        style="@style/shujubiaoti"
         android:layout_toRightOf="@id/shuiwenzhi"
-        android:textColor="@color/textColor"
         android:layout_alignBottom="@id/shuiwen"
         android:layout_marginLeft="30dp"
         android:layout_width="wrap_content"
@@ -123,9 +120,8 @@
     <TextView
         android:id="@+id/ph"
         android:text="PH值"
-        android:textColor="@color/textColor"
+        style="@style/shujubiaoti"
         android:layout_toRightOf="@id/diandaolvzhi"
-        android:textSize="15sp"
         android:layout_alignBottom="@id/diandaolv"
         android:layout_marginLeft="30dp"
         android:layout_width="wrap_content"
@@ -144,8 +140,7 @@
     <TextView
         android:id="@+id/rongjieyang"
         android:text="溶解氧"
-        android:textSize="15sp"
-        android:textColor="@color/textColor"
+        style="@style/shujubiaoti"
         android:layout_toRightOf="@id/phzhi"
         android:layout_alignBottom="@id/ph"
         android:layout_marginLeft="30dp"
@@ -165,8 +160,7 @@
     <TextView
         android:id="@+id/zhuodu"
         android:text="浊度"
-        android:textSize="15sp"
-        android:textColor="@color/textColor"
+        style="@style/shujubiaoti"
         android:layout_toRightOf="@id/rongjieyangzhi"
         android:layout_alignBottom="@id/ph"
         android:layout_marginLeft="30dp"
@@ -186,8 +180,7 @@
     <TextView
         android:id="@+id/zonglin"
         android:text="总磷"
-        android:textSize="15sp"
-        android:textColor="@color/textColor"
+        style="@style/shujubiaoti"
         android:layout_toRightOf="@id/zhuoduzhi"
         android:layout_alignBottom="@id/ph"
         android:layout_marginLeft="30dp"
