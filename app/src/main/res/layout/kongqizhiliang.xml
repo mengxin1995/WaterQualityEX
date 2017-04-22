@@ -58,14 +58,24 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/changguicanshu"
-        android:text="常规参数"
-        android:textColor="@color/textColor"
-        android:textSize="25sp"
-        android:background="@color/background"
+        android:id="@+id/andan"
+        android:text="氨氮"
+        android:layout_alignBottom="@id/kongqizhiliang"
         android:layout_toRightOf="@id/pm_mingzi"
-        android:layout_below="@id/kongqizhiliang"
         android:layout_marginLeft="40dp"
+        android:textColor="@color/textColor"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/andanzhi"
+        android:text="1.2"
+        android:textColor="@color/textColor"
+        android:textSize="30sp"
+        android:layout_alignLeft="@id/andan"
+        android:layout_below="@id/andan"
+        android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -74,9 +84,9 @@
         android:text="水温"
         android:textColor="@color/textColor"
         android:textSize="15sp"
-        android:layout_toRightOf="@id/changguicanshu"
+        android:layout_toRightOf="@id/andanzhi"
         android:layout_alignBottom="@id/kongqizhiliang"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -158,9 +168,53 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        android:id="@+id/zhuodu"
+        android:text="浊度"
+        android:textSize="15sp"
+        android:textColor="@color/textColor"
+        android:layout_toRightOf="@id/rongjieyangzhi"
+        android:layout_alignBottom="@id/ph"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/zhuoduzhi"
+        android:text="8.5"
+        android:textColor="@color/textColor"
+        android:layout_alignLeft="@id/zhuodu"
+        android:textSize="30sp"
+        android:layout_below="@id/zhuodu"
+        android:layout_marginTop="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/zonglin"
+        android:text="总磷"
+        android:textSize="15sp"
+        android:textColor="@color/textColor"
+        android:layout_toRightOf="@id/zhuoduzhi"
+        android:layout_alignBottom="@id/ph"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/zonglinzhi"
+        android:text="8.5"
+        android:textColor="@color/textColor"
+        android:layout_alignLeft="@id/zonglin"
+        android:textSize="30sp"
+        android:layout_below="@id/zonglin"
+        android:layout_marginTop="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:id="@+id/baixian"
         android:layout_below="@id/shuiwenzhi"
-        android:layout_alignLeft="@id/changguicanshu"
+        android:layout_alignLeft="@id/andanzhi"
         android:background="@color/textColor"
         android:layout_marginTop="10dp"
         android:layout_width="500dp"
