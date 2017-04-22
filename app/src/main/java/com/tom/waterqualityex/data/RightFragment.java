@@ -107,13 +107,15 @@ public class RightFragment extends Fragment {
         HttpMethods.getInstance().getWaterData(new SimpleHttpSubscriber<List<WaterData>>(new SubscriberOnNextListener<List<WaterData>>() {
             @Override
             public void onNext(List<WaterData> waterDatas) {
-                WaterData waterData = waterDatas.get(waterDatas.size() - 1);
-                shuiwen.setText(waterData.getShuiWen() + "");
-                diandaolv.setText(waterData.getDianDaoLv() + "");
-                ph.setText(waterData.getPh() + "");
-                rongjieyang.setText(waterData.getRongJieYang() + "");
+                if(waterDatas.size() != 0) {
+                    WaterData waterData = waterDatas.get(waterDatas.size() - 1);
+                    shuiwen.setText(waterData.getShuiWen() + "");
+                    diandaolv.setText(waterData.getDianDaoLv() + "");
+                    ph.setText(waterData.getPh() + "");
+                    rongjieyang.setText(waterData.getRongJieYang() + "");
+                }
             }
-        }), "D01", "2017-04-12");
+        }), "D01", "2017-04-17");
     }
 
 
@@ -124,68 +126,70 @@ public class RightFragment extends Fragment {
         HttpMethods.getInstance().getWaterData(new SimpleHttpSubscriber<List<WaterData>>(new SubscriberOnNextListener<List<WaterData>>() {
             @Override
             public void onNext(List<WaterData> waterDatas) {
-                System.out.println("123123" + waterDatas);
-                List<Entry> entries = new ArrayList<Entry>();
-                for (WaterData w :
-                        waterDatas) {
-                    String t = w.getTime();
-                    String[] sp = t.split(" ");
+                if (waterDatas.size() != 0) {
+                    System.out.println("123123" + waterDatas);
+                    List<Entry> entries = new ArrayList<Entry>();
+                    for (WaterData w :
+                            waterDatas) {
+                        String t = w.getTime();
+                        String[] sp = t.split(" ");
 
-                    String[] split = sp[1].split(":");
-                    float time = Float.parseFloat(split[0]) * 60 + Float.parseFloat(split[1]);
-                    float anDan = w.getAnDan();
-                    entries.add(new Entry(time, anDan));
-                }
+                        String[] split = sp[1].split(":");
+                        float time = Float.parseFloat(split[0]) * 60 + Float.parseFloat(split[1]);
+                        float anDan = w.getAnDan();
+                        entries.add(new Entry(time, anDan));
+                    }
 
-                LineDataSet dataSet = new LineDataSet(entries, "非常规参数--氨氮"); // add entries to dataset
-                dataSet.setColor(Color.BLUE);
-                dataSet.setValueTextColor(Color.WHITE); // styling, ...
-                LineData lineData = new LineData(dataSet);
-                mChart.setData(lineData);
-                //设置描述信息
-                Description mChartDescription = new Description();
+                    LineDataSet dataSet = new LineDataSet(entries, "非常规参数--氨氮"); // add entries to dataset
+                    dataSet.setColor(Color.BLUE);
+                    dataSet.setValueTextColor(Color.WHITE); // styling, ...
+                    LineData lineData = new LineData(dataSet);
+                    mChart.setData(lineData);
+                    //设置描述信息
+                    Description mChartDescription = new Description();
 //                mChartDescription.setText("非常规参数--氨氮");
 //                mChartDescription.setTextSize(15);
 //                mChartDescription.setTextColor(mActivity.getResources().getColor(R.color.textColor));
-                mChartDescription.setEnabled(false);
-                mChart.setDescription(mChartDescription);
+                    mChartDescription.setEnabled(false);
+                    mChart.setDescription(mChartDescription);
 
 
-                //设置x轴坐标
-                XAxis xAxis = mChart.getXAxis();
-                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                xAxis.setDrawAxisLine(true);
-                xAxis.setDrawGridLines(true);
-                xAxis.setDrawAxisLine(true);
-                xAxis.setEnabled(true);
-                xAxis.setAxisLineWidth(2f);
-                xAxis.setTextColor(getActivity().getResources().getColor(R.color.textColor));
-                xAxis.setLabelCount(7);
-                // the labels that should be drawn on the XAxis
-                final String[] quarters = new String[] { "0h", "1h", "2h", "3h",
-                        "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h",
-                        "14h", "15h", "16h", "17h", "18h",
-                        "19h", "20h", "21h", "22h", "23h", "24h"};
-                IAxisValueFormatter formatter = new IAxisValueFormatter() {
-                    @Override
-                    public String getFormattedValue(float value, AxisBase axis) {
-                        return quarters[(int) value / 60];
-                    }
-                };
-                xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
-                xAxis.setValueFormatter(formatter);
+                    //设置x轴坐标
+                    XAxis xAxis = mChart.getXAxis();
+                    xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                    xAxis.setDrawAxisLine(true);
+                    xAxis.setDrawGridLines(true);
+                    xAxis.setDrawAxisLine(true);
+                    xAxis.setEnabled(true);
+                    xAxis.setAxisLineWidth(2f);
+                    xAxis.setTextColor(getActivity().getResources().getColor(R.color.textColor));
+                    xAxis.setLabelCount(7);
+                    // the labels that should be drawn on the XAxis
+                    final String[] quarters = new String[]{"0h", "1h", "2h", "3h",
+                            "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h",
+                            "14h", "15h", "16h", "17h", "18h",
+                            "19h", "20h", "21h", "22h", "23h", "24h"};
+                    IAxisValueFormatter formatter = new IAxisValueFormatter() {
+                        @Override
+                        public String getFormattedValue(float value, AxisBase axis) {
+                            return quarters[(int) value / 60];
+                        }
+                    };
+                    xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
+                    xAxis.setValueFormatter(formatter);
 
-                //设置Y轴属性
-                YAxis leftAxis = mChart.getAxisLeft();
-                leftAxis.setAxisLineWidth(2f);
-                leftAxis.setTextColor(getActivity().getResources().getColor(R.color.textColor));
-                YAxis rightAxis = mChart.getAxisRight();
-                rightAxis.setAxisLineWidth(2f);
-                rightAxis.setTextColor(getActivity().getResources().getColor(R.color.textColor));
+                    //设置Y轴属性
+                    YAxis leftAxis = mChart.getAxisLeft();
+                    leftAxis.setAxisLineWidth(2f);
+                    leftAxis.setTextColor(getActivity().getResources().getColor(R.color.textColor));
+                    YAxis rightAxis = mChart.getAxisRight();
+                    rightAxis.setAxisLineWidth(2f);
+                    rightAxis.setTextColor(getActivity().getResources().getColor(R.color.textColor));
 
-                mChart.invalidate(); // refresh
+                    mChart.invalidate(); // refresh
+                }
             }
-        }), "D01", "2017-04-12");
+        }), "D01", "2017-04-17");
     }
 
     private void getLocalWeatherInfo() {
