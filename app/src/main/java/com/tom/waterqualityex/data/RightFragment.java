@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.blankj.utilcode.utils.TimeUtils;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
@@ -43,6 +44,7 @@ import okhttp3.Response;
 
 public class RightFragment extends Fragment {
 
+    public static final String DEFAULT_PATTERN = "yyyy-MM-dd";
     private static final int DELAYED_MESSAGE = 1;
     private String mProvince;
     private String mCity;
@@ -64,7 +66,6 @@ public class RightFragment extends Fragment {
         public void handleMessage(Message msg) {
             switch(msg.what){
                 case DELAYED_MESSAGE:
-
                     //获取一次天气信息
                     getLocalWeatherInfo();
                     //获取一次图表信息
@@ -82,6 +83,9 @@ public class RightFragment extends Fragment {
     private long DelayedTime = 1000 * 60 * 5;
     private TextView tianqi;
     private TextView wendu;
+    private TextView andan;
+    private TextView zhuodu;
+    private TextView zonglin;
 
     public RightFragment() {
 
@@ -109,13 +113,27 @@ public class RightFragment extends Fragment {
             public void onNext(List<WaterData> waterDatas) {
                 if(waterDatas.size() != 0) {
                     WaterData waterData = waterDatas.get(waterDatas.size() - 1);
-                    shuiwen.setText(waterData.getShuiWen() + "");
+                    fillIntoSP(waterData);
+                    shuiwen.setText(waterData.getShuiWen() + "℃");
                     diandaolv.setText(waterData.getDianDaoLv() + "");
                     ph.setText(waterData.getPh() + "");
                     rongjieyang.setText(waterData.getRongJieYang() + "");
+                    andan.setText(waterData.getAnDan() + "");
+                    zonglin.setText(waterData.getZonglin() + "");
+                    zhuodu.setText(waterData.getZhuodu() + "");
                 }
             }
-        }), "D01", "2017-04-17");
+        }), "D01", TimeUtils.getNowTimeString(DEFAULT_PATTERN));
+    }
+
+    private void fillIntoSP(WaterData waterData) {
+        SpUtil.setString(getActivity(), GlobalConstants.SHUI_WEN, waterData.getShuiWen() + "");
+        SpUtil.setString(getActivity(), GlobalConstants.DIAN_DAO_LV, waterData.getDianDaoLv() + "");
+        SpUtil.setString(getActivity(), GlobalConstants.PH, waterData.getPh() + "");
+        SpUtil.setString(getActivity(), GlobalConstants.RONG_JIE_YANG, waterData.getRongJieYang() + "");
+        SpUtil.setString(getActivity(), GlobalConstants.AN_DAN, waterData.getAnDan() + "");
+        SpUtil.setString(getActivity(), GlobalConstants.ZONG_LIN, waterData.getZonglin() + "");
+        SpUtil.setString(getActivity(), GlobalConstants.ZHUO_DU, waterData.getZhuodu() + "");
     }
 
 
@@ -189,7 +207,7 @@ public class RightFragment extends Fragment {
                     mChart.invalidate(); // refresh
                 }
             }
-        }), "D01", "2017-04-17");
+        }), "D01", TimeUtils.getNowTimeString(DEFAULT_PATTERN));
     }
 
     private void getLocalWeatherInfo() {
@@ -217,6 +235,10 @@ public class RightFragment extends Fragment {
         shuiwen = (TextView) mRightView.findViewById(R.id.shuiwenzhi);
         diandaolv = (TextView) mRightView.findViewById(R.id.diandaolvzhi);
         rongjieyang = (TextView) mRightView.findViewById(R.id.rongjieyangzhi);
+        andan = (TextView) mRightView.findViewById(R.id.andanzhi);
+        zhuodu = (TextView) mRightView.findViewById(R.id.zhuoduzhi);
+        zonglin = (TextView) mRightView.findViewById(R.id.zonglinzhi);
+
         mChart = (LineChart) mRightView.findViewById(R.id.chart);
 
         tianqi = (TextView) mRightView.findViewById(R.id.tianqi);

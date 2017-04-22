@@ -18,16 +18,22 @@ public class WaterData {
     private float anDan;
     @SerializedName("dissolved_oxygen")
     private float rongJieYang;
+    @SerializedName("P")
+    private float zonglin;
+    @SerializedName("ntu")
+    private float zhuodu;
 
     @Override
     public String toString() {
-        return "WaterData{"  +
-                ", time='" + time + '\'' +
+        return "WaterData{" +
+                "time='" + time + '\'' +
                 ", ph=" + ph +
                 ", dianDaoLv=" + dianDaoLv +
                 ", shuiWen=" + shuiWen +
                 ", anDan=" + anDan +
                 ", rongJieYang=" + rongJieYang +
+                ", zonglin=" + zonglin +
+                ", zhuodu=" + zhuodu +
                 '}';
     }
 
@@ -77,5 +83,21 @@ public class WaterData {
 
     public void setRongJieYang(float rongJieYang) {
         this.rongJieYang = rongJieYang;
+    }
+
+    public float getZonglin() {
+        return zonglin;
+    }
+
+    public void setZonglin(float zonglin) {
+        this.zonglin = zonglin;
+    }
+
+    public float getZhuodu() {
+        return zhuodu;
+    }
+
+    public void setZhuodu(float zhuodu) {
+        this.zhuodu = zhuodu;
     }
 }

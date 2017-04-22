@@ -71,13 +71,12 @@
     <TextView
         android:id="@+id/andanzhi"
         android:text="1.2"
-        android:textColor="@color/textColor"
-        android:textSize="30sp"
         android:layout_alignLeft="@id/andan"
         android:layout_below="@id/andan"
         android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/shuzhi" />
 
     <TextView
         android:id="@+id/shuiwen"
@@ -93,8 +92,7 @@
     <TextView
         android:id="@+id/shuiwenzhi"
         android:text="25℃"
-        android:textColor="@color/textColor"
-        android:textSize="30sp"
+        style="@style/shuzhi"
         android:layout_alignLeft="@id/shuiwen"
         android:layout_below="@id/shuiwen"
         android:layout_marginTop="3dp"
@@ -115,11 +113,10 @@
     <TextView
         android:id="@+id/diandaolvzhi"
         android:text="5.6%"
-        android:textSize="30sp"
+        style="@style/shuzhi"
         android:layout_alignLeft="@id/diandaolv"
         android:layout_below="@id/diandaolv"
         android:layout_marginTop="3dp"
-        android:textColor="@color/textColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -137,8 +134,7 @@
     <TextView
         android:id="@+id/phzhi"
         android:text="6.2"
-        android:textSize="30sp"
-        android:textColor="@color/textColor"
+        style="@style/shuzhi"
         android:layout_alignLeft="@id/ph"
         android:layout_below="@id/ph"
         android:layout_marginTop="3dp"
@@ -159,9 +155,8 @@
     <TextView
         android:id="@+id/rongjieyangzhi"
         android:text="8.5"
-        android:textColor="@color/textColor"
         android:layout_alignLeft="@id/rongjieyang"
-        android:textSize="30sp"
+        style="@style/shuzhi"
         android:layout_below="@id/rongjieyang"
         android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
@@ -181,10 +176,9 @@
     <TextView
         android:id="@+id/zhuoduzhi"
         android:text="8.5"
-        android:textColor="@color/textColor"
         android:layout_alignLeft="@id/zhuodu"
-        android:textSize="30sp"
         android:layout_below="@id/zhuodu"
+        style="@style/shuzhi"
         android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -203,9 +197,8 @@
     <TextView
         android:id="@+id/zonglinzhi"
         android:text="8.5"
-        android:textColor="@color/textColor"
         android:layout_alignLeft="@id/zonglin"
-        android:textSize="30sp"
+        style="@style/shuzhi"
         android:layout_below="@id/zonglin"
         android:layout_marginTop="3dp"
         android:layout_width="wrap_content"

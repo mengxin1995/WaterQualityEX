@@ -21,6 +21,8 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.tom.waterqualityex.R;
+import com.tom.waterqualityex.global.GlobalConstants;
+import com.tom.waterqualityex.utils.SpUtil;
 
 /**
  * Created by mengxin on 17-4-8.
@@ -37,6 +39,13 @@ public class RightMapFragment extends Fragment {
     private LatLng mZafu_donghu = new LatLng(30.2609970000,119.7355840000);
     private DataActivity mActivity;
     private TextView tv_title;
+    private TextView shuiwen;
+    private TextView diandaolv;
+    private TextView ph;
+    private TextView rongjieyang;
+    private TextView andan;
+    private TextView zonglin;
+    private TextView zhuodu;
 
     @Nullable
     @Override
@@ -52,7 +61,8 @@ public class RightMapFragment extends Fragment {
 
         baiduMap = mMapView.getMap();
 
-        baiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+//        baiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+        baiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
         baiduMap.setTrafficEnabled(false);
 
         //设置地图中心点为浙江农林大学
@@ -107,11 +117,25 @@ public class RightMapFragment extends Fragment {
                 if (pop == null) {
                     pop = View.inflate(mActivity, R.layout.pop, null);
                     tv_title = (TextView) pop.findViewById(R.id.tv_title);
+                    shuiwen = (TextView) pop.findViewById(R.id.shuiwenzhi);
+                    diandaolv = (TextView) pop.findViewById(R.id.diaodaolvzhi);
+                    ph = (TextView) pop.findViewById(R.id.phzhi);
+                    rongjieyang = (TextView) pop.findViewById(R.id.rongjieyangzhi);
+                    andan = (TextView) pop.findViewById(R.id.andanzhi);
+                    zonglin = (TextView) pop.findViewById(R.id.zonglinzhi);
+                    zhuodu = (TextView) pop.findViewById(R.id.zhuoduzhi);
                     mMapView.addView(pop, createLayoutParams(marker.getPosition()));
                 } else {
                     mMapView.updateViewLayout(pop, createLayoutParams(marker.getPosition()));
                 }
                 tv_title.setText(marker.getTitle());
+                shuiwen.setText(SpUtil.getString(getActivity(), GlobalConstants.SHUI_WEN + "℃", "16℃"));
+                diandaolv.setText(SpUtil.getString(getActivity(), GlobalConstants.DIAN_DAO_LV, ""));
+                ph.setText(SpUtil.getString(getActivity(), GlobalConstants.PH, "8"));
+                rongjieyang.setText(SpUtil.getString(getActivity(), GlobalConstants.RONG_JIE_YANG, ""));
+                andan.setText(SpUtil.getString(getActivity(), GlobalConstants.AN_DAN, ""));
+                zonglin.setText(SpUtil.getString(getActivity(), GlobalConstants.ZONG_LIN, ""));
+                zhuodu.setText(SpUtil.getString(getActivity(), GlobalConstants.ZHUO_DU, ""));
                 return true;
             }
         });

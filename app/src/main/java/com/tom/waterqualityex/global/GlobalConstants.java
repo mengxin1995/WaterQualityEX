@@ -25,4 +25,11 @@ public class GlobalConstants {
      * 跳到欢迎界面的时间　单位毫秒
      */
     public static final long DELAYED_TIME = 1000 * 5 * 12;
+    public static final String SHUI_WEN = "shuiwen";
+    public static final String DIAN_DAO_LV = "diandaolv";
+    public static final String PH = "ph";
+    public static final String RONG_JIE_YANG = "rongjieyang";
+    public static final String AN_DAN = "andan";
+    public static final String ZONG_LIN = "zonglin";
+    public static final String ZHUO_DU = "zhuodu";
 }
