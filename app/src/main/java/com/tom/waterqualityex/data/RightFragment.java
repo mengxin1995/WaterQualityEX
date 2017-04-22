@@ -42,7 +42,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-public class RightFragment extends Fragment {
+public class RightFragment extends Fragment{
 
     public static final String DEFAULT_PATTERN = "yyyy-MM-dd";
     private static final int DELAYED_MESSAGE = 1;
@@ -60,16 +60,17 @@ public class RightFragment extends Fragment {
     private TextView shuiwen;
     private TextView diandaolv;
     private TextView rongjieyang;
+    private String now_temp = GlobalConstants.AN_DAN;
 
-    private Handler mHandler = new Handler(){
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch(msg.what){
+            switch (msg.what) {
                 case DELAYED_MESSAGE:
                     //获取一次天气信息
                     getLocalWeatherInfo();
                     //获取一次图表信息
-                    fillTheChart();
+                    fillTheChart(now_temp);
                     //获取一次常规参数信息
                     fillCommonInfo();
                     mHandler.sendEmptyMessageDelayed(DELAYED_MESSAGE, DelayedTime);
@@ -87,6 +88,14 @@ public class RightFragment extends Fragment {
     private TextView zhuodu;
     private TextView zonglin;
 
+    private TextView pht;
+    private TextView andant;
+    private TextView zhuodut;
+    private TextView zonglint;
+    private TextView shuiwent;
+    private TextView diandaolvt;
+    private TextView rongjieyangt;
+
     public RightFragment() {
 
     }
@@ -99,7 +108,7 @@ public class RightFragment extends Fragment {
         //获取一次天气信息
         getLocalWeatherInfo();
         //获取一次图表信息
-        fillTheChart();
+        fillTheChart(now_temp);
         //获取一次常规参数信息
         fillCommonInfo();
 
@@ -111,7 +120,7 @@ public class RightFragment extends Fragment {
         HttpMethods.getInstance().getWaterData(new SimpleHttpSubscriber<List<WaterData>>(new SubscriberOnNextListener<List<WaterData>>() {
             @Override
             public void onNext(List<WaterData> waterDatas) {
-                if(waterDatas.size() != 0) {
+                if (waterDatas.size() != 0) {
                     WaterData waterData = waterDatas.get(waterDatas.size() - 1);
                     fillIntoSP(waterData);
                     shuiwen.setText(waterData.getShuiWen() + "℃");
@@ -139,8 +148,10 @@ public class RightFragment extends Fragment {
 
     /**
      * 填充图表
+     *
+     * @param temp
      */
-    private void fillTheChart() {
+    private void fillTheChart(final String temp) {
         HttpMethods.getInstance().getWaterData(new SimpleHttpSubscriber<List<WaterData>>(new SubscriberOnNextListener<List<WaterData>>() {
             @Override
             public void onNext(List<WaterData> waterDatas) {
@@ -154,8 +165,33 @@ public class RightFragment extends Fragment {
 
                         String[] split = sp[1].split(":");
                         float time = Float.parseFloat(split[0]) * 60 + Float.parseFloat(split[1]);
-                        float anDan = w.getAnDan();
-                        entries.add(new Entry(time, anDan));
+                        float y = 0;
+                        switch (temp) {
+                            case GlobalConstants.AN_DAN:
+                                y = w.getAnDan();
+                                break;
+                            case GlobalConstants.SHUI_WEN:
+                                y = w.getShuiWen();
+                                break;
+                            case GlobalConstants.DIAN_DAO_LV:
+                                y = w.getDianDaoLv();
+                                break;
+                            case GlobalConstants.PH:
+                                y = w.getPh();
+                                break;
+                            case GlobalConstants.RONG_JIE_YANG:
+                                y = w.getRongJieYang();
+                                break;
+                            case GlobalConstants.ZONG_LIN:
+                                y = w.getZonglin();
+                                break;
+                            case GlobalConstants.ZHUO_DU:
+                                y = w.getZhuodu();
+                                break;
+                            default:
+                                break;
+                        }
+                        entries.add(new Entry(time, y));
                     }
 
                     LineDataSet dataSet = new LineDataSet(entries, "非常规参数--氨氮"); // add entries to dataset
@@ -182,15 +218,18 @@ public class RightFragment extends Fragment {
                     xAxis.setAxisLineWidth(2f);
                     xAxis.setTextColor(getActivity().getResources().getColor(R.color.textColor));
                     xAxis.setLabelCount(7);
-                    // the labels that should be drawn on the XAxis
-                    final String[] quarters = new String[]{"0h", "1h", "2h", "3h",
-                            "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h",
-                            "14h", "15h", "16h", "17h", "18h",
-                            "19h", "20h", "21h", "22h", "23h", "24h"};
                     IAxisValueFormatter formatter = new IAxisValueFormatter() {
                         @Override
                         public String getFormattedValue(float value, AxisBase axis) {
-                            return quarters[(int) value / 60];
+                            int h = (int) (value / 60);
+                            int m = (int) (value % 60);
+                            String mm;
+                            if (m < 10) {
+                                mm = "0" + m;
+                            } else {
+                                mm = m + "";
+                            }
+                            return h + ":" + mm;
                         }
                     };
                     xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
@@ -213,11 +252,11 @@ public class RightFragment extends Fragment {
     private void getLocalWeatherInfo() {
         //获取当地天气信息
         String weatherString = SpUtil.getString(getActivity(), GlobalConstants.WEATHER, null);
-        if(weatherString != null){
+        if (weatherString != null) {
             //有缓存直接解析天气数据
             Weather weather = Engine.handleWeatherResponse(weatherString);
             showWeatherInfo(weather);
-        }else{
+        } else {
             //获取当地天气信息
             getLocalWeather();
         }
@@ -232,12 +271,118 @@ public class RightFragment extends Fragment {
         yunxingjianyi = (TextView) mRightView.findViewById(R.id.yunxingjianyimiaoshu);
 
         ph = (TextView) mRightView.findViewById(R.id.phzhi);
+        ph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.PH);
+                now_temp = GlobalConstants.PH;
+            }
+        });
         shuiwen = (TextView) mRightView.findViewById(R.id.shuiwenzhi);
+        shuiwen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.SHUI_WEN);
+                now_temp = GlobalConstants.SHUI_WEN;
+            }
+        });
         diandaolv = (TextView) mRightView.findViewById(R.id.diandaolvzhi);
+        diandaolv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.DIAN_DAO_LV);
+                now_temp = GlobalConstants.DIAN_DAO_LV;
+            }
+        });
         rongjieyang = (TextView) mRightView.findViewById(R.id.rongjieyangzhi);
+        rongjieyang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.RONG_JIE_YANG);
+                now_temp = GlobalConstants.RONG_JIE_YANG;
+            }
+        });
         andan = (TextView) mRightView.findViewById(R.id.andanzhi);
+        andan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.AN_DAN);
+                now_temp = GlobalConstants.AN_DAN;
+            }
+        });
         zhuodu = (TextView) mRightView.findViewById(R.id.zhuoduzhi);
+        zhuodu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.ZHUO_DU);
+                now_temp = GlobalConstants.ZHUO_DU;
+            }
+        });
         zonglin = (TextView) mRightView.findViewById(R.id.zonglinzhi);
+        zonglin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.ZONG_LIN);
+                now_temp = GlobalConstants.ZONG_LIN;
+            }
+        });
+
+        pht = (TextView) mRightView.findViewById(R.id.ph);
+        pht.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.PH);
+                now_temp = GlobalConstants.PH;
+            }
+        });
+        shuiwent = (TextView) mRightView.findViewById(R.id.shuiwen);
+        shuiwent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.SHUI_WEN);
+                now_temp = GlobalConstants.SHUI_WEN;
+            }
+        });
+        diandaolvt = (TextView) mRightView.findViewById(R.id.diandaolv);
+        diandaolvt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.DIAN_DAO_LV);
+                now_temp = GlobalConstants.DIAN_DAO_LV;
+            }
+        });
+        rongjieyangt = (TextView) mRightView.findViewById(R.id.rongjieyang);
+        rongjieyangt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.RONG_JIE_YANG);
+                now_temp = GlobalConstants.RONG_JIE_YANG;
+            }
+        });
+        andant = (TextView) mRightView.findViewById(R.id.andan);
+        andant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.AN_DAN);
+                now_temp = GlobalConstants.AN_DAN;
+            }
+        });
+        zhuodut = (TextView) mRightView.findViewById(R.id.zhuodu);
+        zhuodut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.ZHUO_DU);
+                now_temp = GlobalConstants.ZHUO_DU;
+            }
+        });
+        zonglint = (TextView) mRightView.findViewById(R.id.zonglin);
+        zonglint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fillTheChart(GlobalConstants.ZONG_LIN);
+                now_temp = GlobalConstants.ZONG_LIN;
+            }
+        });
 
         mChart = (LineChart) mRightView.findViewById(R.id.chart);
 
@@ -276,10 +421,10 @@ public class RightFragment extends Fragment {
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                if(weather != null && "ok".equals(weather.status)){
+                                if (weather != null && "ok".equals(weather.status)) {
                                     SpUtil.setString(getActivity(), GlobalConstants.WEATHER, responseText);
                                     showWeatherInfo(weather);
-                                }else{
+                                } else {
                                     ToastUtil.show(getActivity(), "获取天气信息失败");
                                 }
                             }
@@ -292,6 +437,7 @@ public class RightFragment extends Fragment {
 
     /**
      * 处理接受到的天气数据
+     *
      * @param weather
      */
     private void showWeatherInfo(Weather weather) {
