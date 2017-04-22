@@ -30,7 +30,7 @@ public class WelcomePresenter implements WelcomeContract.Presenter {
     private ArrayList<Integer> mWelcomePicList;
     private Context mContext;
 
-    private Handler mHandler = new Handler() {
+    private  Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {

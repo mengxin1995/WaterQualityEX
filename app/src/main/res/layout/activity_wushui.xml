@@ -5,30 +5,39 @@
     android:layout_height="match_parent"
     android:background="@mipmap/data_background">
 
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_wushui"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        app:piv_viewPager="@id/vp_wushui"/>
+
+    <TextView
+        android:id="@+id/vp_text"
+        android:text="农林学子主力五水共治"
+        android:textSize="20sp"
+        android:textColor="@color/holo_orange_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
     <ImageButton
         android:id="@+id/back"
-        android:scaleType="fitXY"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@color/transparent"
+        android:scaleType="fitXY"
         app:srcCompat="@mipmap/back" />
 
-    <TextView
-        android:id="@+id/mytitle"
-        android:textColor="@color/textColor"
-        android:text="《人民日报》等多家媒体报道我校发挥优势助力剿灭劣V类水"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:id="@+id/wushuigongzhi_pic"
-        android:layout_below="@id/mytitle"
-        android:layout_centerHorizontal="true"
-        android:src="@mipmap/wushuigongzhi"
-        android:layout_width="600dp"
-        android:layout_height="400dp" />
 </RelativeLayout>

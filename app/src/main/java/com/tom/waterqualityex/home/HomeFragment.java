@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.tom.waterqualityex.R;
 import com.tom.waterqualityex.data.DataActivity;
@@ -58,6 +59,13 @@ public class HomeFragment extends Fragment implements HomeContract.View{
                 startActivity(new Intent(getActivity(), DataActivity.class));
             }
         });
+        TextView pic2 = (TextView) mHomeView.findViewById(R.id.pic2_text);
+        pic2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DataActivity.class));
+            }
+        });
 
         project = (ImageButton) mHomeView.findViewById(R.id.project);
         project.setOnClickListener(new View.OnClickListener() {
@@ -66,9 +74,23 @@ public class HomeFragment extends Fragment implements HomeContract.View{
                 mPersenter.setProjectItem();
             }
         });
+        TextView pic3 = (TextView) mHomeView.findViewById(R.id.pic3_text);
+        pic3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPersenter.setProjectItem();
+            }
+        });
 
         introduce = (ImageButton) mHomeView.findViewById(R.id.introduce);
         introduce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPersenter.setIntroduceItem();
+            }
+        });
+        TextView pic1 = (TextView) mHomeView.findViewById(R.id.pic1_text);
+        pic1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPersenter.setIntroduceItem();
