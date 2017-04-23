@@ -194,7 +194,33 @@ public class RightFragment extends Fragment{
                         entries.add(new Entry(time, y));
                     }
 
-                    LineDataSet dataSet = new LineDataSet(entries, "非常规参数--氨氮"); // add entries to dataset
+                    LineDataSet dataSet = null;
+
+                    switch (temp) {
+                        case GlobalConstants.AN_DAN:
+                            dataSet = new LineDataSet(entries, "非常规参数--氨氮"); // add entries to dataset
+                            break;
+                        case GlobalConstants.SHUI_WEN:
+                            dataSet = new LineDataSet(entries, "常规参数--水温"); // add entries to dataset
+                            break;
+                        case GlobalConstants.DIAN_DAO_LV:
+                            dataSet = new LineDataSet(entries, "常规参数--电导率"); // add entries to dataset
+                            break;
+                        case GlobalConstants.PH:
+                            dataSet = new LineDataSet(entries, "常规参数--PH值"); // add entries to dataset
+                            break;
+                        case GlobalConstants.RONG_JIE_YANG:
+                            dataSet = new LineDataSet(entries, "常规参数--溶解氧"); // add entries to dataset
+                            break;
+                        case GlobalConstants.ZONG_LIN:
+                            dataSet = new LineDataSet(entries, "常规参数--总磷"); // add entries to dataset
+                            break;
+                        case GlobalConstants.ZHUO_DU:
+                            dataSet = new LineDataSet(entries, "常规参数--浊度"); // add entries to dataset
+                            break;
+                        default:
+                            break;
+                    }
                     dataSet.setColor(Color.BLUE);
                     dataSet.setValueTextColor(Color.WHITE); // styling, ...
                     LineData lineData = new LineData(dataSet);
