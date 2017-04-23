@@ -34,8 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp">
         <ImageView
-            android:paddingLeft="50dp"
-            android:paddingRight="25dp"
+            android:paddingLeft="75dp"
             android:src="@mipmap/pp3"
             android:scaleType="fitXY"
             android:layout_weight="1"
@@ -58,7 +57,7 @@
         android:layout_toRightOf="@id/back"
         android:layout_below="@id/ll"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginRight="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
