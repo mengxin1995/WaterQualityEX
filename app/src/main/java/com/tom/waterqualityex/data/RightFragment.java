@@ -478,4 +478,18 @@ public class RightFragment extends Fragment{
         wendu.setText(weather.now.temperature + "℃");
         tianqi.setText(weather.now.more.info);
     }
+
+    @Override
+    public void onDetach() {
+        mHandler.removeCallbacksAndMessages(null);
+        mHandler = null;
+        System.out.println("RightFragment Detach");
+        super.onDetach();
+    }
+
+    @Override
+    public void onDestroy() {
+        System.out.println("RightFragment destory");
+        super.onDestroy();
+    }
 }
